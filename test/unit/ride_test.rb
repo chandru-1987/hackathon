@@ -56,16 +56,14 @@ class RideTest < ActiveSupport::TestCase
     assert_equal(["Date can't be in the past"], @ride.errors.full_messages)
   end
   test 'Find rides' do
-    rides = Ride.where('date >= ?', DateTime.now)
-    rides = rides.source(rides(:one).source)
+    rides_pre = Ride.where('date >= ?', DateTime.now)
+    rides = rides_pre.source(rides(:one).source)
     rides = rides.destination(rides(:one).destination)
     assert_equal(1, rides.count)
-    rides = Ride.where('date >= ?', DateTime.now)
-    rides = rides.source(rides(:two).source)
+    rides = rides_pre.source(rides(:two).source)
     rides = rides.destination(rides(:two).destination)
     assert_equal(1, rides.count)
-    rides = Ride.where('date >= ?', DateTime.now)
-    rides = rides.seats(rides(:one).seats)
+    rides = rides_pre.seats(rides(:one).seats)
     assert_equal(2, rides.count)
   end
 end
