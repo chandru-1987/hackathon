@@ -2,9 +2,9 @@ class Ride < ActiveRecord::Base
   attr_accessible :contact, :date, :destination, :destination_latitude, :destination_longitude, :email, :price, :seats, :source, :source_latitude, :source_longitude
 
   validates :destination, :source, :price, :seats, :presence => true
-  validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}
-  validates :price, :seats, :numericality => true
-  validates_format_of :destination, :source, :with => /^([^\d\W]|[-])*$/
+  validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}, :allow_nil => true
+  validates :price, :seats, :numericality => true, :allow_nil => true
+  validates_format_of :destination, :source, :with => /^([^\d\W]|[-])*$/, :allow_nil => true
   validate :expiration_date_cannot_be_in_the_past
   belongs_to :user
   scope :source, lambda {|source|  where("source like ?", "%#{source}%")}
@@ -20,6 +20,8 @@ class Ride < ActiveRecord::Base
   end
   
   def expiration_date_cannot_be_in_the_past
-    errors.add(:date, "can't be in the past") if self.date < Date.today
+	if self.date.present? && self.date < Date.today
+       errors.add(:date, "can't be in the past") 
+    end
   end
 end

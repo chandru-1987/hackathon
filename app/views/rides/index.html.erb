@@ -5,6 +5,7 @@
     <h1>Listing Rides</h1>
   <% end %>
   <table id ="rides_table">
+   <thead>
     <tr>
       <th>Source</th>
       <th>Destination</th>
@@ -18,7 +19,8 @@
       <th></th>
       <th></th>
     </tr>
-
+  </thead>
+  <tbody>
     <% @rides.each do |ride| %>
       <tr>
         <td><%= ride.source %></td>
@@ -34,6 +36,7 @@
         <td><%= link_to 'Destroy', ride, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+   </tbody>
   </table>
 <% end %>
 <br />
@@ -42,6 +45,8 @@
 
 <script>
   $( document ).ready(function() {
-    $('#rides_table').dataTable()
+    $('#rides_table').dataTable({
+			"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
+		});
   });
 </script>
