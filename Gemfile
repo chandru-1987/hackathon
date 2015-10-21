@@ -12,6 +12,8 @@ gem 'foundation-rails'
 gem 'bootstrap-sass'
 gem 'foreigner'
 gem 'cancancan', '~> 1.10'
+gem 'capistrano', '~> 3.4.0'
+gem 'capistrano-ext', '~> 1.2.1'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -29,6 +31,13 @@ end
 
 group :development do
   gem 'rails_layout'
+end
+
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'cucumber-rails'
+  gem 'capybara'
+  gem 'database_cleaner'
 end
 
 gem 'jquery-rails'
