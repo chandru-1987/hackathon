@@ -1,4 +1,5 @@
 class RidesController < ApplicationController
+  before_filter :authenticate_user!
   before_filter :set_ride, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
