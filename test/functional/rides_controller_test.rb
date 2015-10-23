@@ -1,9 +1,10 @@
 require 'test_helper'
 
 class RidesControllerTest < ActionController::TestCase
-  setup do
-    sign_in users(:chandra)
-    @ride = rides(:one)
+  setup :initialize_article
+
+  teardown do
+    @ride = nil
   end
 
   test "should get index" do
@@ -58,7 +59,13 @@ class RidesControllerTest < ActionController::TestCase
     assert_difference('Ride.count', -1) do
       delete :destroy, id: @ride
     end
-
     assert_redirected_to rides_path
+  end
+
+ private
+
+  def initialize_article
+    sign_in users(:chandra)
+    @ride = rides(:one)
   end
 end
