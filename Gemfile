@@ -37,7 +37,9 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'cucumber-rails'
   gem 'capybara'
+  gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'selenium-webdriver', '~> 2.48', '>= 2.48.1'
 end
 
 gem 'jquery-rails'

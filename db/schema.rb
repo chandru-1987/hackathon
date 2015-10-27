@@ -13,17 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20151016104743) do
 
-  create_table "items", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.decimal  "price",       :precision => 5, :scale => 2
-    t.integer  "user_id"
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
-  end
-
-  add_index "items", ["user_id"], :name => "index_items_on_user_id"
-
   create_table "rides", :force => true do |t|
     t.string   "source"
     t.float    "source_latitude"
@@ -65,7 +54,6 @@ ActiveRecord::Schema.define(:version => 20151016104743) do
     t.integer  "role_id"
   end
 
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end
