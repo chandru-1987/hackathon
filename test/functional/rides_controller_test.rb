@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class RidesControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
   setup :initialize_article
 
   teardown do

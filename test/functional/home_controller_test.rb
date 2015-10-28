@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class HomeControllerTest < ActionController::TestCase
-
+  include Devise::TestHelpers
   test "after user login" do
     sign_in users(:chandra)	
     get :index
