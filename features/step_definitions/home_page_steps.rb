@@ -3,7 +3,7 @@ Given(/^app has basic setup$/) do
     :password => 'aspire@123', :password_confirmation => 'aspire@123')
 end
 
-Given(/^I am authenticated user$/) do
+And(/^I am authenticated user$/) do
   email = 'chandra.thiruvengadam@aspiresys.com'
   password = 'aspire@123'
   visit '/users/sign_in'
@@ -34,8 +34,8 @@ When(/^I enter the "(.*?)" and "(.*?)"$/) do |email, passwd|
   fill_in('user_password', :with => passwd)
 end
 
-When(/^I click the sign in button$/) do
-  click_button('Sign in')
+When(/^I click the "(.*?)" button$/) do |button|
+  click_button(button)
 end
 
 Then(/^I should get "(.*?)" notification$/) do |msg|

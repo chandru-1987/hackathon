@@ -15,11 +15,11 @@ Feature: Home page
     Then I am on "/users/sign_in" page
     # Given invalid credentials
     When I enter the "blabla@aspiresys.com" and "aa123"
-    When I click the sign in button
+    When I click the "Sign in" button
     Then I should get "Invalid email or password." notification
     # Given valid credentials
     When I enter the "chandra.thiruvengadam@aspiresys.com" and "aspire@123"
-    When I click the sign in button
+    When I click the "Sign in" button
     Then I should get "Signed in successfully." notification
 
   @javascript
@@ -27,3 +27,10 @@ Feature: Home page
     When I am on the homepage
     When I click the "Sign up" link on home page
     Then I am on "/users/sign_up" page
+    When I fill in the form with the following
+      | user_name                  | fill_in  |Testing           |
+      | user_email                 | fill_in  |testing@gmail.com |
+      | user_password              | fill_in  |test@123          |
+      | user_password_confirmation | fill_in  |test@123          |
+    When I click the "Sign up" button
+    Then I should get "Welcome! You have signed up successfully." notification
