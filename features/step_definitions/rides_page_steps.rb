@@ -3,11 +3,8 @@ Then(/^I should see the no rides in the "(.*?)" table$/) do |table_selector|
 end
 
 When(/^I create some new rides$/) do
-  FactoryGirl.create(:ride, :source => 'Tambaram', :destination => 'Siruseri', :price => 100, :date => DateTime.now+1,
-    :seats => 5, :contact => 123133222, :email => 'sda@gamil.com')
-  FactoryGirl.create(:ride, :source => 'Chennai', :destination => 'Trichy', :price => 1000, :date => DateTime.now+7,
-    :seats => 2, :contact => 123133222, :email => 'sda@gamil.com')
-  end
+  create_rides
+end
   
 Then(/^I should see the rides in the "(.*?)" table$/) do |table_selector|
   page.should have_content('Listing Rides')
@@ -49,6 +46,3 @@ Then(/^I should see the "(.*?)" link$/) do |link_text|
   page.should have_selector('a', :text => link_text)  
 end
 
-Then(/^I sleep "(.*?)" seconds$/) do |sec|
-  sleep(sec.to_i)
-end

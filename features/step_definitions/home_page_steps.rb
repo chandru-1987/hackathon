@@ -1,6 +1,5 @@
 Given(/^app has basic setup$/) do
-  FactoryGirl.create(:user, :name => 'Chandra Mohan T', :email => 'chandra.thiruvengadam@aspiresys.com',
-    :password => 'aspire@123', :password_confirmation => 'aspire@123')
+  create_user
 end
 
 And(/^I am authenticated user$/) do
