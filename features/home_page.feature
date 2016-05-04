@@ -18,7 +18,7 @@ Feature: Home page
     When I click the "Sign in" button
     Then I should get "Invalid email or password." notification
     # Given valid credentials
-    When I enter the "chandra.thiruvengadam@aspiresys.com" and "aspire@123"
+    When I enter the "chandra.mohan@qfor.com" and "qfor@1234"
     When I click the "Sign in" button
     Then I should get "Signed in successfully." notification
 

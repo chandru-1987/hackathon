@@ -8,8 +8,8 @@ def create_rides
 end
 
 def create_user
-  FactoryGirl.create(:user, :name => 'Chandra Mohan T', :email => 'chandra.thiruvengadam@aspiresys.com',
-                     :password => 'aspire@123', :password_confirmation => 'aspire@123')
+  FactoryGirl.create(:user, :name => 'Chandra Mohan T', :email => 'chandra.mohan@qfor.com',
+                     :password => 'qfor@1234', :password_confirmation => 'qfor@1234')
 end
 
 Then(/^I sleep "(.*?)" seconds$/) do |sec|
