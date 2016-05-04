@@ -3,7 +3,7 @@ Given(/^app has basic setup$/) do
 end
 
 And(/^I am authenticated user$/) do
-  email = 'chandra.thiruvengadam@aspiresys.com'
+  email = 'chandra.thiruvengadam@gmail.com'
   password = 'aspire@123'
   visit '/users/sign_in'
   fill_in "user_email", :with => email
